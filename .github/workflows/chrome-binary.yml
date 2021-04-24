@@ -1,0 +1,20 @@
+name: Check where the chrome binary is
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: which chrome
+      if: ${{ always() }}
+    - run: which chrome-browser
+      if: ${{ always() }}
+    - run: which chromium
+      if: ${{ always() }}
+    - run: which chromium-browser
+      if: ${{ always() }}
